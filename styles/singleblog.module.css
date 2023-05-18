@@ -1,0 +1,14 @@
+.blogContainer{
+    display: flex;
+    max-width: 1170px;
+    margin: 100px auto;
+    gap: 50px;
+}
+.postcontainer{
+    width: 70%;
+    background-color: aqua;
+}
+.relatedTagContainer{
+    width: 30%;
+    background-color: gray;
+}

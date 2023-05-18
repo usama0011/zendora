@@ -1,0 +1,269 @@
+.upperContainer {
+  width: 100%;
+  height: 186px;
+  position: relative;
+}
+.bgImageContainer{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.bgImageContainer > img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-size: cover;
+}
+.ourprofessionalContainer {
+  position: absolute;
+  top: 0;
+  background:transparent;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ourprofessionalContainer > h1 {
+  line-height: 50px;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+.pre > span {
+  margin-right: 10px;
+  font-size: 18px;
+}
+.pre > span:last-child {
+  color: #ffb8b7;
+  cursor: pointer;
+}
+.paragraphContainer {
+  padding: 50px 20px;
+  line-height: 28px;
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 70px;
+  text-align: center;
+}
+.paragraphContainer > p {
+  margin-bottom: 30px;
+  color: rgb(91, 99, 99);
+}
+.imagesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   place-items: center;
+  grid-gap: 30px;
+  max-width: 1170px;
+  margin: 0px auto;
+}
+.imageContainer {
+  width: 359px;
+  height: 313px;
+  position: relative;
+}
+.myImage {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+.beliveContainer {
+  display: flex;
+  width: 100%;
+  height: 580px;
+  margin: 100px 0px;
+  position: relative;
+}
+.bleft {
+  flex: 80%;
+  background-color: #ffb8b7;
+}
+.bright {
+  flex: 20%;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.boneImage{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.item {
+  display: flex;
+  align-items: center;
+  margin-bottom:8px;
+}
+.item > p {
+  color: white;
+  line-height: 25px;
+}
+.myArrow {
+  width: 20px;
+  height: 20px;
+  color: white;
+  margin-right: 10px;
+}
+.contentDiv {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 1170px;
+  height: 420px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.myImageContainer{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.galleryImage{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+
+}
+.leftInnerconetnt{
+    padding: 1rem 1.5rem;
+}
+.leftInnerconetnt > h1{
+    font-size: 60px;
+    color: white;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+.suiteContainer{
+    max-width: 1170px;
+    margin: 100px auto;
+}
+/* payment container */
+.paymentcontainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.payment {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.671));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+}
+
+.title {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 45px;
+  color: #ffb8b7;
+  font-weight: bold;
+}
+
+.description {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #c2bbbb;
+}
+
+.button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #ffb8b7;
+  color:white;
+  font-weight: bold;
+  margin-top: 30px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  width: 80%;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* Media Queries for responsiveness */
+
+
+
+@media (max-width:576px){
+  .leftInnerconetnt > h1{
+    font-size: 30px}
+    .paymentcontainer {
+      grid-template-columns: 1fr !important;
+    }
+}
+@media (max-width: 768px) {
+  .paymentcontainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 992px) {
+  .paymentcontainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width:1067px){
+ 
+  .bright{
+    display: none;
+  }
+  .bleft{
+    flex: 1;
+  }
+  .contentDiv{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px 30px;
+  }
+  .leftInnerconetnt{
+   order: 2;
+  }
+  .myImageContainer{
+   order: 1;
+   height: 400px;
+  }
+
+}

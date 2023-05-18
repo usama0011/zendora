@@ -1,0 +1,29 @@
+.sliderContainer {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .sliderItem {
+    flex: 0 0 390px;
+    height: 506px;
+    margin-right: 20px;
+    background-color: #f2f2f2;
+  }
+  
+  .coverImage {
+    width: 100%;
+    height: 70%;
+    position: relative;
+  }
+  
+  .itemContent {
+    padding: 20px;
+  }
+  
+  .itemContent p {
+    margin-top: 10px;
+  }
+  
+  /* Additional styles for the slider */
+  
