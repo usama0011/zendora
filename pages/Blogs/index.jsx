@@ -44,12 +44,12 @@ const Index = () => {
               <Link href={`/Blogs/${i + 1}`} key={i}>
                 <div key={i} className={styles.singleItemContainer}>
                   <div className={styles.blogImageContianer}>
-                    <Image src={item.coverImage} fill alt='salaonImage' />
+                    <Image src={item?.coverImage} fill alt='salaonImage' />
                   </div>
                   <div className={styles.descriptionCotinaer}>
-                    <div><span>By</span><span>zendora</span> / <span>{item.date}</span> </div>
-                    <h2>{item.title}</h2>
-                    <p>{item.description}</p>
+                    <div><span>By</span><span>zendora</span> / <span>{item?.date}</span> </div>
+                    <h2>{item?.title}</h2>
+                    <p>{item?.description}</p>
                   </div>
                 </div>
               </Link>
