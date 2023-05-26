@@ -1,6 +1,7 @@
 import styles from "../styles/AboutC.module.css";
 import Image from "next/image";
 import { CheckBadgeIcon } from '@heroicons/react/24/outline'
+import Link from "next/link";
 
 const AboutC = () => {
 
@@ -40,7 +41,7 @@ const AboutC = () => {
         <div className={styles.checkContainer}>
           <div className={styles.singleTick}>
             <CheckBadgeIcon className={styles.mytick} />
-            <p> Hand selected furniture per your Profession</p>
+            <p> Hand selected furniture per your profession</p>
           </div>
           <div className={styles.singleTick}> <CheckBadgeIcon className={styles.mytick} />
             <p> Temperature controls in each suite for maximum comfort</p></div>
@@ -50,7 +51,7 @@ const AboutC = () => {
             <p> Online booking and marketing to help grow your business</p></div>
         </div>
         <div className={styles.contactUs}>
-          <button>VIEW OUR GALLERY</button><button>CONTACT NOW</button>
+          <button>VIEW OUR GALLERY</button><button><Link href="/contactus">CONTACT NOW</Link></button>
         </div>
       </div>
     </div>

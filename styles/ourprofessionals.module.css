@@ -182,7 +182,7 @@
 @media (max-width: 576px) {
   /* Styles for mobile phones */
   .imageContainer {
-    width: 300px;
+    width: 100%;
     height: 350px;
   }
   .bookingContainer {
@@ -251,7 +251,7 @@
 @media (max-width: 1200px) {
   /* Styles for desktops */
   .imageContainer {
-    max-width: 80%;
+    max-width: 90%;
     position: relative;
     width: 100%;
     margin: 0px auto;

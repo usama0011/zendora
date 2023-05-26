@@ -31,7 +31,7 @@ const Footer = () => {
                         <h3>Contact Info</h3>
                         <div>
                             <span>Address:</span>
-                            <span>9820 Dave Ward Dr. Conway, AR</span>
+                            <span>3820 Dave Ward Dr, Conway, AR 72034, USA</span>
                         </div>
                         <div>
                             <span>Phone:</span>
@@ -56,7 +56,7 @@ const Footer = () => {
                     </div>
                     <div className={styles.ourLocation}>
                         <h3>Our Location</h3>
-                        <p>9820 Dave Ward Dr. Conway, AR</p>
+                        <p>3820 Dave Ward Dr, Conway, AR 72034, USA</p>
                     </div>
                     <div className={styles.paymentMethods}>
                         <h3>Payment Methods</h3>

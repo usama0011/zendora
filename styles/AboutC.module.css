@@ -155,7 +155,10 @@
 .divtwo {
   width: 180px;
   height: 200px;
-  
+  position: absolute;
+  bottom: 0px;
+  float: right;
+  right: 0px;
 }
 .divthree {
   width: 200px;

@@ -19,7 +19,7 @@ const GallerySlider = () => {
 
     },
     {
-      coverImage: "/GTen.png",
+      coverImage: "/Gten.png",
       itemNo: "03",
       itemTitle: "Hair Styling, Nails, Spa Services",
       itemDescription: "We broke the ceiling on the inductry standard! Each suite is insulated and..."

@@ -68,19 +68,28 @@
   font-weight: bold;
 }
 .dots {
-  position: relative;
-  margin: 0 0.5rem;
-  width: 1rem;
-  height: 1rem;
-  border: 1px solid red;
+  position: absolute;
+  bottom: 25px; /* Adjust the positioning as needed */
+  left: 50%; /* Adjust the positioning as needed */
+  transform: translateX(-50%); /* Center horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 999;
+}
+
+.dot {
+  width: 10px; /* Adjust the size as needed */
+  height: 10px; /* Adjust the size as needed */
+  margin: 0 4px; /* Adjust the spacing as needed */
   border-radius: 50%;
   cursor: pointer;
   background-color: #fff;
+  border: none;
   transition: background-color 0.5s ease-in-out;
 }
 
-.dots.active {
+.dot.active {
   background-color: #000;
 }
 /* Extra Small Devices (Mobile Phones) */

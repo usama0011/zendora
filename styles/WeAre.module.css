@@ -78,11 +78,12 @@
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
+  padding:10px;
   justify-content: center;
 }
 .iframe {
-  width: 900px;
-  height: 550px;
+  max-width: 900px;
+  max-height: 550px;
 }
 .videoContainer {
   position: absolute;
@@ -106,18 +107,27 @@
 
 @media (max-width: 576px) {
   /* Styles for mobile phones */
-  .iframe{
-    width: 200px !important;
-    height: 300px !important;
+  .iframe {
+    max-width: 400px;
+    width: 280px !important;
+    height: 350px !important;
+  }
+  .imageContainer {
+    height: 500px;
+  }
+  .closeIcon {
+    position: absolute;
+    top: -50px;
+    right: 0px;
   }
 }
 
 /* Small Devices (Tablets) */
 
 @media (max-width: 768px) {
-  .iframe{
-    width: 450px !important;
-    height: 350px  !important;
+  .iframe {
+    max-width: 500px !important;
+    height: 100%;
   }
 }
 
@@ -129,8 +139,8 @@
 /* Large Devices (Desktops) */
 @media (max-width: 1020px) {
   /* Styles for desktops */
-  .iframe{
-    width: 600px;
-    height: 450px;
+  .iframe {
+    max-width: 700px;
+    max-height: 450px;
   }
 }

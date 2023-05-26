@@ -70,7 +70,7 @@ const NavBar = () => {
             </li>
             <li className={styles.nav_link}>
               <Link href="/contactus">
-                Contact Us
+                Contact us
               </Link>
             </li>
             <li className={styles.nav_link}>
