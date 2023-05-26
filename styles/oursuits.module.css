@@ -56,7 +56,7 @@
 .imagesContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-   place-items: center;
+  place-items: center;
   grid-gap: 30px;
   max-width: 1170px;
   margin: 0px auto;
@@ -73,78 +73,65 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
-.beliveContainer {
-  display: flex;
+/* Belief Container */
+.beliefContainer{
   width: 100%;
-  height: 580px;
-  margin: 100px 0px;
-  position: relative;
+   height:580px;
+   display: flex;
+   position: relative;
+   margin: 100px 0px;
 }
-.bleft {
-  flex: 80%;
+.beliefleft{
+  width: 80%;
   background-color: #ffb8b7;
 }
-.bright {
-  flex: 20%;
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-.boneImage{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.item {
-  display: flex;
-  align-items: center;
-  margin-bottom:8px;
-}
-.item > p {
-  color: white;
-  line-height: 25px;
-}
-.myArrow {
-  width: 20px;
-  height: 20px;
-  color: white;
-  margin-right: 10px;
-}
-.contentDiv {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  max-width: 1170px;
-  height: 420px;
+.addContainer{
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1170px;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  height: 450px;
   margin: auto;
+  padding: 15px;
 }
-.myImageContainer{
-    width: 100%;
-    height: 100%;
-    position: relative;
+.addLeft > h1{
+  font-size: 4.2rem;
+  color: white;
+  margin-bottom: 30px;
 }
-.galleryImage{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background-position: center;
-    background-size: cover;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.addRight{
+  position: relative;
+}
+.addRight > img{
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
-
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
-.leftInnerconetnt{
-    padding: 1rem 1.5rem;
+.beliefRight{
+  position: relative;
+  width: 20%;
 }
-.leftInnerconetnt > h1{
-    font-size: 60px;
-    color: white;
-    margin-bottom: 20px;
-    padding-top: 20px;
+.arrowRight{
+  width: 18px;
+  height: 18px;
+  color: white;
+  margin-right: 10px;
+}
+.addItem{
+  display: flex;
+  align-items: center;
+  margin-bottom: 13px;
+}
+.addItem > p{
+  color: white;
 }
 .suiteContainer{
     max-width: 1170px;
@@ -159,7 +146,6 @@
   margin: 0 auto;
   padding: 20px;
 }
-
 .payment {
   position: relative;
   border-radius: 10px;
@@ -224,13 +210,28 @@
 
 /* Media Queries for responsiveness */
 
-
+@media (max-width:360px) {
+  .imageContainer{
+    width: 320px;
+    height: 313px;
+  }
+}
 
 @media (max-width:576px){
   .leftInnerconetnt > h1{
     font-size: 30px}
     .paymentcontainer {
       grid-template-columns: 1fr !important;
+    }
+    .addRight{
+      height: 330px !important;
+    }
+    .addLeft > h1{
+      font-size: 3rem;
+      margin-top: 10px !important;
+    }
+    .addItem > p{
+      line-height: 22px;
     }
 }
 @media (max-width: 768px) {
@@ -245,25 +246,30 @@
 }
 
 @media (max-width:1067px){
- 
-  .bright{
-    display: none;
-  }
-  .bleft{
-    flex: 1;
-  }
-  .contentDiv{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    padding: 20px 30px;
-  }
-  .leftInnerconetnt{
-   order: 2;
-  }
-  .myImageContainer{
-   order: 1;
-   height: 400px;
-  }
-
+ .beliefRight{
+  display: none;
+ }
+ .beliefleft{
+  width: 100%;
+ }
+ .addContainer{
+  grid-template-columns: repeat(1,1fr);
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+ }
+ .beliefContainer{
+  height: 950px;
+ }
+ .addRight{
+  height: 500px;
+  order: 1;
+ }
+ .addLeft{
+  order: 2;
+ }
+ .addLeft > h1{
+  margin-top: 20px;
+ }
 }

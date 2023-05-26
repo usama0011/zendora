@@ -6,25 +6,24 @@ import Link from "next/link";
 const slidesData = [
   {
     image: "/slideone.png",
-    title: "Currently leasing",
-    description: "For our Conway, Arkansas location that opens winter 2023!",
+    title: "Currently Leasing",
+    description: "For our Conway, Arkansas location that opening Summer 2023!",
     buttonText: "GET STARTED",
-    link: "/slide1",
+    link: "/",
   },
   {
-    title: "Looking for a new salon professional",
+    title: "Looking for a new salon professional?",
     image: "/slidetwo.png",
-    description: "Checkout our Gallery of Stylish and services they offer!",
+    description: "Checkout our Gallery of stylist and services they offer!",
     buttonText: "OUR GALLERY",
-    link: "/slide2",
+    link: "/ourprofessionals",
   },
   {
     image: "/sthree.png",
     title: "We are here to help!",
     description: "",
     buttonText: "CONTACT US",
-
-    link: "/slide3",
+    link: "/contactus",
   },
 ];
 
@@ -64,8 +63,7 @@ const Slider = () => {
             <Image
               src={slide.image}
               alt={`Slide ${index + 1}`}
-              layout="fill"
-              objectFit="cover"
+              fill
               quality={100}
             />
           </div>

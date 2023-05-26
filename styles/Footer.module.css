@@ -168,8 +168,10 @@
   .middlePart {
     grid-template-columns: 1fr;
   }
-  .bottomLeft,
-  .bottomRight li {
+  .bottomLeft {
+    font-size: 10px;
+  }
+  .bottomRight > ul > li{
     font-size: 10px;
   }
 }

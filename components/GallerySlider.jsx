@@ -1,45 +1,101 @@
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import styles from "../styles/GallerySlider.module.css"
+import Image from 'next/image';
+import React, { useState } from 'react'
+import styles from '../styles/GallerySlider.module.css'
+import { ChevronLeftIcon, ChevronRightIcon, XMarkIcon } from '@heroicons/react/24/outline';
+const GallerySlider = () => {
+  const galleryData = [
+    {
+      coverImage: "/Gfive.png",
+      itemNo: "01",
+      itemTitle: "The Massage and Waxing",
+      itemDescription: "We broke the ceiling on the inductry standard! Each suite is insulated and..."
 
-const GallerySlider = ({ galleryData }) => {
+    },
+    {
+      coverImage: "/Gseven.png",
+      itemNo: "02",
+      itemTitle: "The Threading and Lashes",
+      itemDescription: "We broke the ceiling on the inductry standard! Each suite is insulated and..."
+
+    },
+    {
+      coverImage: "/GTen.png",
+      itemNo: "03",
+      itemTitle: "Hair Styling, Nails, Spa Services",
+      itemDescription: "We broke the ceiling on the inductry standard! Each suite is insulated and..."
+
+    },
+    {
+      coverImage: "/Gnine.png",
+      itemNo: "04",
+      itemTitle: "Hair Washing",
+      itemDescription: "We broke the ceiling on the inductry standard! Each suite is insulated and..."
+
+    },
+    {
+      coverImage: "/Geleven.png",
+      itemNo: "05",
+      itemTitle: "Hair Cutting and Color",
+      itemDescription: "We broke the ceiling on the inductry standard! Each suite is insulated and..."
+    },
+  ]
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [visibleItems, setVisibleItems] = useState([]);
+  const [isImageOpen, setIsImageOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0)
+  const handlePrevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : galleryData.length - 1));
+  };
 
-  const totalItems = galleryData.length;
-  const itemsPerPage = 3;
+  const handleNextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex < galleryData.length - 1 ? prevIndex + 1 : 0));
+  };
+  const handleOpenImage = () => {
+    setIsImageOpen(true);
+  };
 
-  useEffect(() => {
-    const updateVisibleItems = () => {
-      const startIndex = currentIndex % totalItems;
-      const endIndex = (startIndex + itemsPerPage) % totalItems;
-      const newVisibleItems = galleryData.slice(startIndex, endIndex);
-      setVisibleItems(newVisibleItems);
-    };
-
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => prevIndex + 1);
-    }, 3000);
-
-    updateVisibleItems();
-
-    return () => clearInterval(interval);
-  }, [currentIndex, totalItems, itemsPerPage, galleryData]);
-
+  const handleCloseImage = () => {
+    setIsImageOpen(false);
+  };
+  const handleActiveIndex = (index) => {
+    setActiveIndex(index)
+  }
   return (
     <div className={styles.sliderContainer}>
-      {visibleItems.map((item, index) => (
-        <div className={styles.sliderItem} key={index}>
-          <div className={styles.coverImage}>
-            <Image src={item.coverImage} alt={`Item ${item.itemNo}`} width={390} height={450} />
-          </div>
-          <div className={styles.itemContent}>
-            <p>{item.itemNo}</p>
-            <h2>{item.itemTitle}</h2>
-            <p>{item.itemDescription}</p>
+      <h1>Our Suits</h1>
+      <div
+        className={styles.slider}
+      >
+        <div onClick={handlePrevSlide} style={{ left: 0 }} className={styles.arrowContainer}>
+          <ChevronLeftIcon className={styles.a} />
+        </div>
+        {galleryData.map((item, i) => {
+          return (
+            <div  key={i} className={styles.slide} style={{ transform: `translateX(-${currentIndex * 390}px)` }} onClick={handleOpenImage}>
+              <Image  onClick={()=>handleActiveIndex(i)} src={item.coverImage} alt='salonImage' fill />
+              <div className={styles.addson}>
+                <div className={styles.top}>
+                  <span className={styles.spanone}>{item.itemNo}</span>
+                  <p>{item.itemTitle}</p>
+                </div>
+                <div className={styles.bottom}>
+                  <p>{item.itemDescription}</p>
+                </div>
+              </div>
+            </div>
+          )
+        })}
+        <div style={{ right: -10 }} onClick={handleNextSlide} className={styles.arrowContainer}>
+          <ChevronRightIcon className={styles.a} />
+        </div>
+      {isImageOpen && (
+        <div className={styles.imageContainer}>
+          <div className={styles.imageModal} onClick={handleCloseImage} />
+          <div className={styles.imageModalContent}>
+            <Image src={galleryData[activeIndex].coverImage} alt='salonImage' fill />
           </div>
         </div>
-      ))}
+      )}
+      </div>
     </div>
   );
 };

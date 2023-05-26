@@ -94,13 +94,14 @@
 }
 .bookingContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  grid-gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); 
+  width: 100%;
   margin-bottom: 70px;
 }
 .imageContainer {
-  width: 585px;
+  max-width: 500px;
   height: 714px;
+  width: 100%;
   position: relative;
 }
 .myImage {
@@ -128,6 +129,7 @@
   cursor: pointer;
   transition: all 0.5s ease;
 }
+
 .descContainer {
   padding: 50px 0px;
   color: #8f8f8f;
@@ -236,7 +238,7 @@
     width: 100%;
   }
   .chooseContainer > select {
-    width: 1005;
+    width: 100%;
   }
 }
 
@@ -249,13 +251,15 @@
 @media (max-width: 1200px) {
   /* Styles for desktops */
   .imageContainer {
-    width: 80%;
+    max-width: 80%;
+    position: relative;
+    width: 100%;
     margin: 0px auto;
   }
   .searchContainer {
     justify-content: center;
   }
   .bottomcontainer {
-    padding: 20px 50px;
+    padding: 20px 20px;
   }
 }

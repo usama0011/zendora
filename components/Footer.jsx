@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../styles/Footer.module.css'
 import Image from 'next/image'
+import Link from 'next/link'
 const Footer = () => {
     return (
         <footer className={styles.outer}>
@@ -27,7 +28,7 @@ const Footer = () => {
                 </div>
                 <div className={styles.middlePart}>
                     <div className={styles.contactInfo}>
-                        <h3>Contact info</h3>
+                        <h3>Contact Info</h3>
                         <div>
                             <span>Address:</span>
                             <span>9820 Dave Ward Dr. Conway, AR</span>
@@ -44,11 +45,13 @@ const Footer = () => {
                     <div className={styles.quickLinks}>
                         <h3>Quick Links</h3>
                         <ul>
-                            <li>Our Professionals</li>
-                            <li>Our Suites</li>
-                            <li>Gallery</li>
-                            <li>Blog</li>
-                            <li>Contact us</li>
+                            <Link href="/ourprofessionals"><li>Our Professionals</li></Link>
+                            <Link href="/oursuites"><li>Our Suites</li></Link>
+                            <Link href="/"><li>Gallery</li></Link>
+                            <Link href="/Blogs"><li>Blog</li></Link>
+                            <Link href="/contactus"><li>Contact Us</li></Link>
+                            <Link href="/signup"><li>Sign Up</li></Link>
+                            <Link href="/login"><li>Login</li></Link>
                         </ul>
                     </div>
                     <div className={styles.ourLocation}>
@@ -56,7 +59,7 @@ const Footer = () => {
                         <p>9820 Dave Ward Dr. Conway, AR</p>
                     </div>
                     <div className={styles.paymentMethods}>
-                        <h3>Payment methods</h3>
+                        <h3>Payment Methods</h3>
                         <p>
                             Each Professional is an independent business owner. Please speak to your service provider for more details.
                         </p>

@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Footer from '@/components/Footer'
 import NavBar from '@/components/NavBar'
 import { ArrowUturnRightIcon } from '@heroicons/react/24/outline'
+import GallerySlider from '@/components/GallerySlider'
 const Index = () => {
   const galleryData = [
     {
@@ -71,90 +72,87 @@ const Index = () => {
             <Image className={styles.myImage} fill src="/suitone.png" alt='salaonImage' />
           </div>
         </div>
-        <div className={styles.beliveContainer}>
-          <div className={styles.bleft}>
-
-          </div>
-          <div className={styles.bright}>
-            <Image src="/bone.png" alt='salonImage' quality={100} fill className={styles.boneImage} />
-          </div>
-          <div className={styles.contentDiv}>
-            <div className={styles.leftInnerconetnt}>
+        <div className={styles.beliefContainer}>
+          <div className={styles.addContainer}>
+            <div className={styles.addLeft}>
               <h1>We Believe In</h1>
-              <div className={styles.descContainer}>
-                <div className={styles.item}>
-                  <ArrowUturnRightIcon className={styles.myArrow} />
-                  <p>Hand selected furniture per your profession</p>
-                </div>
-                <div className={styles.item}>
-                  <ArrowUturnRightIcon className={styles.myArrow} />
-                  <p> Temperature controls in each suite for maximum comfort</p>
-                </div>
-                <div className={styles.item}>
-                  <ArrowUturnRightIcon className={styles.myArrow} />
-                  <p>Online booking and marketing to help grow your business
-                  </p>
-                </div>
-                <div className={styles.item}>
-                  <ArrowUturnRightIcon className={styles.myArrow} />
-                  <p>True to Tone lighting throughout to showcase your creations
-                  </p>
-                </div>
-                <div className={styles.item}>
-                  <ArrowUturnRightIcon className={styles.myArrow} />
-                  <p>Designated Social Media Area to market your work
-                  </p>
-                </div>
-                <div className={styles.item}>
-                  <ArrowUturnRightIcon className={styles.myArrow} />
-                  <p>Innovative Skylights in non-window suites to create an inviting atmosphere</p>
-                </div>
-                <div className={styles.item}>
-                  <ArrowUturnRightIcon className={styles.myArrow} />
-                  <p> Washer and Dryer available on premises
-                  </p>
-                </div>
+              <div className={styles.addItem}>
+                <ArrowUturnRightIcon className={styles.arrowRight} />
+                <p>Hand selected furniture per your profession</p>
+              </div>
+              <div className={styles.addItem}>
+                <ArrowUturnRightIcon className={styles.arrowRight} />
+                <p>Temperature controls in each suite for maximum comfort</p>
+              </div>
+              <div className={styles.addItem}>
+                <ArrowUturnRightIcon className={styles.arrowRight} />
+                <p>A designated secure waiting room for your clients</p>
+              </div>
+              <div className={styles.addItem}>
+                <ArrowUturnRightIcon className={styles.arrowRight} />
+                <p>Online booking and marketing to help grow your business</p>
+              </div>
+              <div className={styles.addItem}>
+                <ArrowUturnRightIcon className={styles.arrowRight} />
+                <p>True to Tone lighting throughout to showcase your creations</p>
+              </div>
+              <div className={styles.addItem}>
+                <ArrowUturnRightIcon className={styles.arrowRight} />
+                <p>Designated Social Media Area to market your work</p>
+              </div>
+              <div className={styles.addItem}>
+                <ArrowUturnRightIcon className={styles.arrowRight} />
+                <p>Innovative Skylights in non-window suites to create an inviting atmosphere</p>
+              </div>
+              <div className={styles.addItem}>
+                <ArrowUturnRightIcon className={styles.arrowRight} />
+                <p> Washer and Dryer available on premises</p>
               </div>
             </div>
-            <div className={styles.myImageContainer}>
-              <Image src="/btwo.png" fill alt='galleryImage' className={styles.galleryImage} />
+            <div className={styles.addRight}>
+              <Image src="/solan.jpg" alt="Payment Plan" fill />
+            </div>
+          </div>
+          <div className={styles.beliefleft}></div>
+          <div className={styles.beliefRight}>
+            <Image className={styles.image} src="/bone.png" alt="Payment Plan" fill />
+          </div>
+        </div>
+        <GallerySlider/>
+        <div className={styles.paymentcontainer}>
+          <div className={styles.payment}>
+            <Image className={styles.image} src="/pay.jpg" alt="Payment Plan" width={500} height={450} />
+            <div className={styles.overlay}>
+              <h3 className={styles.title}>1 Year Incentives</h3>
+              <p className={styles.price}>$199 <br /> </p><p>/ month</p>
+              <p className={styles.description}>One-week free rent</p>
+              <p className={styles.description}>One week half off</p>
+              <button className={styles.button}>Choose Plan</button>
+            </div>
+          </div>
+          <div className={styles.payment}>
+            <Image className={styles.image} src="/pay.jpg" alt="Payment Plan" width={500} height={450} />
+            <div className={styles.overlay}>
+              <h3 className={styles.title}>1 Year Incentives</h3>
+              <p className={styles.price}>$199 <br /> </p><p>/ month</p>
+              <p className={styles.description}>One-week free rent</p>
+              <p className={styles.description}>One week half off</p>
+              <button className={styles.button}>Choose Plan</button>
+            </div>
+          </div>
+          <div className={styles.payment}>
+            <Image className={styles.image} src="/pay.jpg" alt="Payment Plan" width={500} height={450} />
+            <div className={styles.overlay}>
+              <h3 className={styles.title}>1 Year Incentives</h3>
+              <p className={styles.price}>$199 <br /> </p><p>/ month</p>
+              <p className={styles.description}>One-week free rent</p>
+              <p className={styles.description}>One week half off</p>
+              <button className={styles.button}>Choose Plan</button>
             </div>
           </div>
         </div>
-        <div className={styles.paymentcontainer}>
-      <div className={styles.payment}>
-        <Image className={styles.image} src="/pay.jpg" alt="Payment Plan" width={500} height={450} />
-        <div className={styles.overlay}>
-          <h3 className={styles.title}>1 Year Incentives</h3>
-          <p className={styles.price}>$199 <br /> </p><p>/ month</p>
-          <p className={styles.description}>One-week free rent</p>
-          <p className={styles.description}>One week half off</p>
-          <button className={styles.button}>Choose Plan</button>
-        </div>
       </div>
-       <div className={styles.payment}>
-        <Image className={styles.image} src="/pay.jpg" alt="Payment Plan" width={500} height={450} />
-        <div className={styles.overlay}>
-          <h3 className={styles.title}>1 Year Incentives</h3>
-          <p className={styles.price}>$199 <br /> </p><p>/ month</p>
-          <p className={styles.description}>One-week free rent</p>
-          <p className={styles.description}>One week half off</p>
-          <button className={styles.button}>Choose Plan</button>
-        </div>
-      </div>
-      <div className={styles.payment}>
-        <Image className={styles.image} src="/pay.jpg" alt="Payment Plan" width={500} height={450} />
-        <div className={styles.overlay}>
-          <h3 className={styles.title}>1 Year Incentives</h3>
-          <p className={styles.price}>$199 <br /> </p><p>/ month</p>
-          <p className={styles.description}>One-week free rent</p>
-          <p className={styles.description}>One week half off</p>
-          <button className={styles.button}>Choose Plan</button>
-        </div>
-      </div>
-    </div>
-      </div>
-      <Footer/>
+      <Footer />
     </>
   )
 }

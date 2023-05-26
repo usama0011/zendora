@@ -12,24 +12,28 @@ const Index = () => {
       name: "Ana",
       desc: "Each of our Professionals are licensed and insured. Take a look at our gallery and you'll be able to book an appointment with them directly. Not sure what service you're looking for? Click a professional and choose the consultation option to begin!",
       service: "spa",
+      sImage: "/spa.jpg"
     },
     {
       id: 2,
       name: "Smith",
       desc: "Each of our Professionals are licensed and insured. Take a look at our gallery and you'll be able to book an appointment with them directly. Not sure what service you're looking for? Click a professional and choose the consultation option to begin!",
       service: "salon",
+      sImage: "/Geleven.png"
     },
     {
       id: 3,
       name: "Elissa",
       desc: "Each of our Professionals are licensed and insured. Take a look at our gallery and you'll be able to book an appointment with them directly. Not sure what service you're looking for? Click a professional and choose the consultation option to begin!",
       service: "nail",
+      sImage: "/Geight.png"
     },
     {
       id: 4,
       name: "Dlissa",
       desc: "Each of our Professionals are licensed and insured. Take a look at our gallery and you'll be able to book an appointment with them directly. Not sure what service you're looking for? Click a professional and choose the consultation option to begin!",
       service: "barber",
+      sImage: "/Geleven.png"
     },
     // Add more professionals here
   ];
@@ -59,94 +63,94 @@ const Index = () => {
   });
   return (
     <>
-    <NavBar/>
-    <div className={styles.container}>
-    <div className={styles.upperContainer}>
-    <div className={styles.bgImageContainer}>
-               <Image src="/bg.png" alt='backgourndImage' fill/>
+      <NavBar />
+      <div className={styles.container}>
+        <div className={styles.upperContainer}>
+          <div className={styles.bgImageContainer}>
+            <Image src="/bg.png" alt='backgourndImage' fill />
+          </div>
+          <div className={styles.ourprofessionalContainer}>
+            <h1>Our Professionals</h1>
+            <div className={styles.pre}>
+              <span>Home</span>/<span> Our Professionals</span>
             </div>
-      <div className={styles.ourprofessionalContainer}>
-        <h1>Our Professionals</h1>
-        <div className={styles.pre}>
-          <span>Home</span>/<span> Our Professionals</span>
+          </div>
         </div>
-      </div>
-    </div>
-    <div className={styles.bottomcontainer}>
-      <div className={styles.textContainer}>
-        <p className={styles.text}>
-          Each of our Professionals are licensed and insured. Take a look at our gallery and you will be able to book an appointment with them directly. Not sure what service you are looking for? Click a professional and choose the consultation option to begin!
-        </p>
-      </div>
-      <div className={styles.salonContainer}>
-        <div className={styles.searchContainer}>
-          <div className={styles.firstDiv}>
-            <label htmlFor="pname">Search by Professional  Name</label>
-            <input
-              type="text"
-              placeholder="Professional Name"
-              value={professionalName}
-              onChange={handleSearch}
-              className={styles.searchInput}
-            />
+        <div className={styles.bottomcontainer}>
+          <div className={styles.textContainer}>
+            <p className={styles.text}>
+              Each of our Professionals are licensed and insured. Take a look at our gallery and you will be able to book an appointment with them directly. Not sure what service you are looking for? Click a professional and choose the consultation option to begin!
+            </p>
           </div>
-          <div className={styles.secondDiv}>
-            <label htmlFor="service">Select Service</label>
-            <select
-              value={selectedService}
-              onChange={handleServiceSelect}
-              className={styles.serviceSelect}
-            >
-              <option value="all">Show All</option>
-              <option value="massage">Massage</option>
-              <option value="salon">Salon</option>
-              <option value="nail">Nail</option>
-              <option value="barber">Barber</option>
-            </select>
-          </div>
+          <div className={styles.salonContainer}>
+            <div className={styles.searchContainer}>
+              <div className={styles.firstDiv}>
+                <label htmlFor="pname">Search by Professional  Name</label>
+                <input
+                  type="text"
+                  placeholder="Professional Name"
+                  value={professionalName}
+                  onChange={handleSearch}
+                  className={styles.searchInput}
+                />
+              </div>
+              <div className={styles.secondDiv}>
+                <label htmlFor="service">Select Service</label>
+                <select
+                  value={selectedService}
+                  onChange={handleServiceSelect}
+                  className={styles.serviceSelect}
+                >
+                  <option value="all">Show All</option>
+                  <option value="massage">Massage</option>
+                  <option value="salon">Salon</option>
+                  <option value="nail">Nail</option>
+                  <option value="barber">Barber</option>
+                </select>
+              </div>
 
-        </div>
-        {filteredProfessionals.map((professional) => (
-          <div className={styles.bookingContainer} key={professional.id}>
-            <div className={styles.imageContainer}>
-              <Image className={styles.myImage} src="/barber.png" alt="Professional Image" fill />
             </div>
-            <div className={styles.formContainer}>
-              <div className={styles.pName}>
-                <p>{professional.name}</p>
-                <span>{professional.service}</span>
+            {filteredProfessionals.map((professional) => (
+              <div className={styles.bookingContainer} key={professional.id}>
+                <div className={styles.imageContainer}>
+                  <Image quality={100} className={styles.myImage} src={professional.sImage} alt="Professional Image" fill />
+                </div>
+                <div className={styles.formContainer}>
+                  <div className={styles.pName}>
+                    <p>{professional.name}</p>
+                    <span>{professional.service}</span>
+                  </div>
+                  <div className={styles.descContainer}>
+                    <p>{professional.desc}</p>
+                  </div>
+                  <form onSubmit={handleSubmit} className={styles.form}>
+                    <h3>Book An Appointment</h3>
+                    <div className={styles.inputItem}>
+                      <input type="text" id="name" placeholder="Name" />
+                      <input type="text" id="mobile" placeholder="Mobile Number" />
+                    </div>
+                    <div className={styles.inputItem}>
+                      <input type="date" id="date" />
+                      <input type="text" id="email" placeholder="Email" />
+                    </div>
+                    <div className={styles.chooseContainer}>
+                      <select id="service">
+                        <option value="massage">Massage</option>
+                        <option value="salon">Salon</option>
+                        <option value="nail">Nail</option>
+                        <option value="barber">Barber</option>
+                      </select>
+                    </div>
+                    <button type="submit" className={styles.submitButton}>Send</button>
+                  </form>
+                </div>
               </div>
-              <div className={styles.descContainer}>
-                <p>{professional.desc}</p>
-              </div>
-              <form onSubmit={handleSubmit} className={styles.form}>
-                <h3>Book An Appointment</h3>
-                <div className={styles.inputItem}>
-                  <input type="text" id="name" placeholder="Name" />
-                  <input type="text" id="mobile" placeholder="Mobile Number" />
-                </div>
-                <div className={styles.inputItem}>
-                  <input type="date" id="date" />
-                  <input type="text" id="email" placeholder="Email" />
-                </div>
-                <div className={styles.chooseContainer}>
-                  <select id="service">
-                    <option value="massage">Massage</option>
-                    <option value="salon">Salon</option>
-                    <option value="nail">Nail</option>
-                    <option value="barber">Barber</option>
-                  </select>
-                </div>
-                <button  type="submit" className={styles.submitButton}>Send</button>
-              </form>
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
-    </div>
-  </div>
-  <Footer/>
-  </>
+      <Footer />
+    </>
   )
 };
 
