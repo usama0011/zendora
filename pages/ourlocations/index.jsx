@@ -33,14 +33,6 @@ const Index = () => {
       loading="lazy"
     ></iframe>
   </div>
-  <div>
-    <iframe
-      className={styles.googleMap}
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3265.374059203626!2d-92.49589762427729!3d35.07238546317928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87cd7d0cc7198317%3A0x1a9de45bdf4663bc!2s3820%20Dave%20Ward%20Dr%2C%20Conway%2C%20AR%2072034%2C%20USA!5e0!3m2!1sen!2s!4v1685118865885!5m2!1sen!2s"
-      allowfullscreen=""
-      loading="lazy"
-    ></iframe>
-  </div>
 </div>
 
       </div>

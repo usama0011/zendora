@@ -14,7 +14,7 @@ const slidesData = [
   {
     title: "Looking for a new salon professional?",
     image: "/slidetwo.png",
-    description: "o	Check out our gallery of stylists and the services that they offer!",
+    description: "Check out our gallery of stylists and the services that they offer!",
     buttonText: "OUR GALLERY",
     link: "/ourprofessionals",
   },

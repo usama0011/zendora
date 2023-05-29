@@ -70,7 +70,7 @@ const Footer = () => {
                     <div className={styles.bottomRight}>
                         <ul>
                             <li>Privacy Policy</li>
-                            <li>Terms & Condition</li>
+                            <li>Terms & Conditions</li>
                             <li>Site map</li>
                         </ul>
                     </div>

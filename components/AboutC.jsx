@@ -32,11 +32,7 @@ const AboutC = () => {
           <span className={styles.welcome}>Welcome To</span> Zendora Salon
           Suites
         </h1>
-        <p className={styles.description}>
-          Where your salon business IS our business. Our gorgeous facility
-          accommodates 27 salon Professionals. From multiple paint options to
-          luxurious lighting, we believe in letting you be the designer of your
-          space! Each suite comes with the package.
+        <p className={styles.description}>“Where your salon business IS our business. Our gorgeous facility accommodates 27 salon professionals. From multiple paint options to luxurious lighting, we believe in letting you be the designer of your space! Each suite comes with the following package.”
         </p>
         <div className={styles.checkContainer}>
           <div className={styles.singleTick}>
