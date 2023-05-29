@@ -7,14 +7,14 @@ const slidesData = [
   {
     image: "/slideone.png",
     title: "Currently Leasing",
-    description: "For our Conway, Arkansas location that opening Summer 2023!",
+    description: "For our Conway, Arkansas location that is opening Summer 2023!",
     buttonText: "GET STARTED",
     link: "/",
   },
   {
     title: "Looking for a new salon professional?",
     image: "/slidetwo.png",
-    description: "Checkout our Gallery of stylist and services they offer!",
+    description: "o	Check out our gallery of stylists and the services that they offer!",
     buttonText: "OUR GALLERY",
     link: "/ourprofessionals",
   },

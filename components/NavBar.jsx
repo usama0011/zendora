@@ -1,49 +1,79 @@
-import Link from "next/link";
-import styles from "../styles/NavBar.module.css";
-import Image from "next/image";
-import { Bars3Icon } from "@heroicons/react/24/outline";
-import { useEffect, useRef, useState } from "react";
+import { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Bars3Icon } from '@heroicons/react/24/outline';
+
+import styles from '../styles/NavBar.module.css';
+
 const NavBar = () => {
-  const [opneNav, setOpenNav] = useState(false);
-  const mobileNavRef = useRef(null)
+  const [openNav, setOpenNav] = useState(false);
+  const [showAccount, setShowAccount] = useState(false);
+  const [user, setUser] = useState(null);
+  const mobileNavRef = useRef(null);
+  const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { fullname = '', username = '', email = '' } = user || {};
+  const dName = fullname.charAt(0);
+
   const handleClickClose = () => {
-    setOpenNav((p) => !p)
-  }
+    setOpenNav((prevOpenNav) => !prevOpenNav);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    setUser(null);
+    setIsLoggedIn(false);
+    router.push('/login');
+  };
+
+  const handleshowAccount = () => {
+    setShowAccount(!showAccount);
+  };
+
   useEffect(() => {
     const handleclickoutside = (e) => {
       if (mobileNavRef.current && !mobileNavRef.current.contains(e.target)) {
-        setOpenNav(false)
+        setOpenNav(false);
       }
-    }
-    document.addEventListener("mousedown", handleclickoutside);
+    };
+
+    document.addEventListener('mousedown', handleclickoutside);
     return () => {
-      document.removeEventListener('mousedown', handleclickoutside)
+      document.removeEventListener('mousedown', handleclickoutside);
+    };
+  }, []);
+
+  useEffect(() => {
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      const { fullname = '', username = '', email = '' } = JSON.parse(userData);
+      setUser({ fullname, username, email });
+      setIsLoggedIn(true);
     }
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    const user = localStorage.getItem('user');
+    setIsLoggedIn(!!user);
+  }, []);
+
   return (
     <div className={styles.container}>
       <nav className={styles.nav}>
         <div className={styles.nav_left}>
           <ul className={styles.nav_links}>
             <li className={styles.nav_link}>
-              <Link href="/">
-                Home
-              </Link>
+              <Link href="/">Home</Link>
             </li>
             <li className={styles.nav_link}>
-              <Link href="/ourprofessionals">
-                Our Professionals
-              </Link>
+              <Link href="/ourprofessionals">Our Professionals</Link>
             </li>
             <li className={styles.nav_link}>
-              <Link href="/oursuites">
-                Our Suites
-              </Link>
+              <Link href="/oursuites">Our Suites</Link>
             </li>
             <li className={styles.nav_link}>
-              <Link href="/ourlocations">
-                Locations
-              </Link>
+              <Link href="/ourlocations">Locations</Link>
             </li>
           </ul>
         </div>
@@ -51,83 +81,110 @@ const NavBar = () => {
           <Link href="/">
             <Image
               className={styles.companImg}
-              src={require("../public/companyImage.png")}
+              src="/companyImage.png"
               alt="userImage"
+              width={100}
+              height={100}
             />
           </Link>
         </div>
         <div className={styles.nav_right}>
           <ul className={styles.nav_links}>
             <li className={styles.nav_link}>
-              <Link href="/bookappointment">
-                Book an Appointment
-              </Link>
+              <Link href="/bookappointment">Book an Appointment</Link>
             </li>
             <li className={styles.nav_link}>
-              <Link href="/Blogs">
-                Blog
-              </Link>
+              <Link href="/Blogs">Blog</Link>
             </li>
             <li className={styles.nav_link}>
-              <Link href="/contactus">
-                Contact us
-              </Link>
+              <Link href="/contactus">Contact us</Link>
             </li>
-            <li className={styles.nav_link}>
-              <Link href="/signup">
-             Sign up
-              </Link>
-            </li>
-            <li className={styles.nav_link}>
-              <Link href="/login">
-             Login
-              </Link>
-            </li>
+            {isLoggedIn ? (
+              <></>
+            ) : (
+              <>
+                <li className={styles.nav_link}>
+                  <Link href="/signup">Sign up</Link>
+                </li>
+                <li className={styles.nav_link}>
+                  <Link href="/login">Login</Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
+        {isLoggedIn && (
+          <div className={styles.user}>
+            <p onClick={handleshowAccount}>{dName}</p>
+            {showAccount && (
+              <div className={styles.infoContainer}>
+                <ul>
+                  <li>
+                    <h2>{username}</h2>
+                  </li>
+                  <li>
+                    <p>{email}</p>
+                  </li>
+                  <li>
+                    <button onClick={handleLogout}>Logout</button>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
         <div className={styles.mobileNavigation}>
           <Bars3Icon onClick={handleClickClose} className={styles.barIcons} />
         </div>
       </nav>
-      {opneNav && <div className={styles.mobileView}>
-        <div ref={mobileNavRef} className={styles.mobiNavContainer}>
-          <div className={styles.mobileImageContainer}>
-            <Image src="/companyImage.png" alt="userImage" fill />
-          </div>
-          <div className={styles.mobileUl}>
-            <ul>
-              <Link href="/">
-                <li>Home</li>
-              </Link>
-              <Link href="/ourprofessionals">
-                <li>Our Professionals</li>
-              </Link>
-              <Link href="/oursuites">
-                <li>Our Suites</li>
-              </Link>
-              <Link href="/ourlocations">
-                <li>Locations</li>
-              </Link>
-              <Link href="/bookappointment">
-                <li>Book an Appointment</li>
-              </Link>
-              <Link href="/Blogs">
-                <li>Blog</li>
-              </Link>
-              <Link href="/contactus">
-                <li>Contact Us</li>
-
-              </Link>
-              <Link href="/signup">
-                <li>Sign up</li>
-              </Link>
-              <Link href="/login">
-                <li>Login</li>
-              </Link>
-            </ul>
+      {openNav && (
+        <div className={styles.mobileView}>
+          <div ref={mobileNavRef} className={styles.mobiNavContainer}>
+            <div className={styles.mobileImageContainer}>
+              <Image src="/companyImage.png" alt="userImage" width={100} height={100} />
+            </div>
+            <div className={styles.mobileUl}>
+              <ul>
+                <Link href="/">
+                  <li>Home</li>
+                </Link>
+                <Link href="/ourprofessionals">
+                  <li>Our Professionals</li>
+                </Link>
+                <Link href="/oursuites">
+                  <li>Our Suites</li>
+                </Link>
+                <Link href="/ourlocations">
+                  <li>Locations</li>
+                </Link>
+                <Link href="/bookappointment">
+                  <li>Book an Appointment</li>
+                </Link>
+                <Link href="/Blogs">
+                  <li>Blog</li>
+                </Link>
+                <Link href="/contactus">
+                  <li>Contact Us</li>
+                </Link>
+                {isLoggedIn ? (
+                  <>
+                    <button className={styles.mobiellogout} onClick={handleLogout}>Logout</button>
+                  </>
+                ) : (
+                  <>
+                    <Link href="/signup">
+                      <li>Sign up</li>
+                    </Link>
+                    <Link href="/login">
+                      <li>Login</li>
+                    </Link>
+                  </>
+                )}
+              </ul>
+            </div>
           </div>
         </div>
-      </div>}
+      )}
     </div>
   );
 };
