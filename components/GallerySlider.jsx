@@ -61,7 +61,7 @@ const GallerySlider = () => {
   }
   return (
     <div className={styles.sliderContainer}>
-      <h1>Our Suits</h1>
+      <h1>Our Suites</h1>
       <div
         className={styles.slider}
       >
