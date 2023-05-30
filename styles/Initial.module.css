@@ -9,6 +9,39 @@
   margin-bottom: 50px;
   margin-top: 0; /* Added to remove the default top margin. */
 }
+.success_message {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    margin-top: 50px;
+    transform: translateX(-50%);
+    background-color: #4ce67f;
+    border-radius: 5px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: slideInOut 3s ease-in;
+  }
+  
+  @keyframes slideInOut {
+    0% {
+      top: -100%;
+      opacity: 1;
+    }
+    10% {
+      top: 0;
+      opacity: 1;
+    }
+    90% {
+      top: 0;
+      opacity: 1;
+    }
+    100% {
+      top: -100%;
+      opacity: 0;
+    }
+  }
+  
 .myForm {
   display: flex;
   flex-direction: column;
@@ -132,6 +165,10 @@
 @media screen and (max-width: 576px) {
 .mytitle{
     line-height: 35px;
+}
+.success_message{
+    font-size: 12px;
+    white-space: nowrap;
 }
 }
 @media screen and (max-width: 767px) {
