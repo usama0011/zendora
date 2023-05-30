@@ -9,7 +9,7 @@ const slidesData = [
     title: "Currently Leasing",
     description: "For our Conway, Arkansas location that is opening Summer 2023!",
     buttonText: "GET STARTED",
-    link: "/",
+    link: "/gettstarted",
   },
   {
     title: "Looking for a new salon professional?",
