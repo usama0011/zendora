@@ -7,8 +7,8 @@
 .mytitle {
   text-align: center;
   margin-bottom: 50px;
+  margin-top: 0; /* Added to remove the default top margin. */
 }
-
 .myForm {
   display: flex;
   flex-direction: column;
@@ -20,7 +20,13 @@
   flex-wrap: wrap;
   margin-bottom: 20px;
 }
-
+.license_field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  width: 100%;
+}
 .form_field {
   flex: 1;
   display: flex;
@@ -81,29 +87,53 @@
 
 .error_message {
   color: red;
+  padding: 10px 5px;
 }
 
 .mybtn {
-  margin-top: 10px;
-  padding: 10px 20px;
-  cursor: pointer;
-  height: 50px;
-  font-weight: bold;
-  font-size: 16px;
-}
-
+    margin-top: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+    height: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Added box shadow */
+  }
 .mybtn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  color: black;
+  font-weight: bold;
 }
 
 .mybtn:hover,
 .mybtn:focus {
-  background-color: #000;
+  background-color: #ffb8b7;
   color: #fff;
 }
+.checkbox_container {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
 
+.checkbox_label {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.checkbox_label input[type="checkbox"] {
+  margin-right: 5px;
+  cursor: pointer;
+}
 /* Media Queries */
+@media screen and (max-width: 576px) {
+.mytitle{
+    line-height: 35px;
+}
+}
 @media screen and (max-width: 767px) {
   .form_row {
     flex-direction: column;
@@ -113,7 +143,15 @@
     margin-right: 0;
     margin-bottom: 20px;
   }
-  .formLabel{
+  .formLabel {
     line-height: 27px;
+  }
+  .mobileView {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .mobileView > label{
+    margin-bottom: 10px;
   }
 }
