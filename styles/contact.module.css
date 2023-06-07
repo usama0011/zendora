@@ -44,6 +44,10 @@
     display: grid;
     grid-template-columns: repeat(2,1fr)
   }
+  .successMessage{
+    padding: 10px 5px;
+    font-size: 14px;
+  }
   .phoneIcon{
     width: 22px;
     height: 22px;

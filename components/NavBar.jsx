@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -13,7 +13,7 @@ const NavBar = () => {
   const mobileNavRef = useRef(null);
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const { fullname = '', username = '', email = '' } = user || {};
+  const { fullname = '', username = '', email = '', isAdmin = false } = user || {};
   const dName = fullname.charAt(0);
 
   const handleClickClose = () => {
@@ -47,8 +47,8 @@ const NavBar = () => {
   useEffect(() => {
     const userData = localStorage.getItem('user');
     if (userData) {
-      const { fullname = '', username = '', email = '' } = JSON.parse(userData);
-      setUser({ fullname, username, email });
+      const { fullname = '', username = '', email = '', isAdmin = false } = JSON.parse(userData);
+      setUser({ fullname, username, email, isAdmin });
       setIsLoggedIn(true);
     }
   }, []);
@@ -94,9 +94,6 @@ const NavBar = () => {
               <Link href="/bookappointment">Book an Appointment</Link>
             </li>
             <li className={styles.nav_link}>
-              <Link href="/Blogs">Blog</Link>
-            </li>
-            <li className={styles.nav_link}>
               <Link href="/contactus">Contact us</Link>
             </li>
             {isLoggedIn ? (
@@ -125,6 +122,9 @@ const NavBar = () => {
                   <li>
                     <p>{email}</p>
                   </li>
+                  {isAdmin ? <li><button>
+                    <Link href="/admin">Admin Pannel</Link>
+                  </button></li> : null}
                   <li>
                     <button onClick={handleLogout}>Logout</button>
                   </li>
@@ -160,14 +160,14 @@ const NavBar = () => {
                 <Link href="/bookappointment">
                   <li>Book an Appointment</li>
                 </Link>
-                <Link href="/Blogs">
-                  <li>Blog</li>
-                </Link>
                 <Link href="/contactus">
                   <li>Contact Us</li>
                 </Link>
                 {isLoggedIn ? (
                   <>
+                    {isAdmin ? <button>
+                      <Link href="/admin">Admin Pannel</Link>
+                    </button> : null}
                     <button className={styles.mobiellogout} onClick={handleLogout}>Logout</button>
                   </>
                 ) : (

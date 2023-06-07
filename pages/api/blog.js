@@ -1,5 +1,5 @@
 import dbConnect from "../../lib/dbConnect";
-import Blog from "../../models/Blog"
+import Blog from "../../models/Blog";
 
 export default async function handler(req, res) {
   const { method } = req;
@@ -17,19 +17,29 @@ export default async function handler(req, res) {
       break;
     case "POST":
       try {
-        const { coverImage, author, date, title, description, relatedCat } =
-          req.body;
-        const newBlog = new Blog({
-          coverImage,
+        const {
           author,
           date,
           title,
           description,
           relatedCat,
+          coverImage
+
+        } = req.body;
+
+        const newBlog = new Blog({
+          author,
+          date,
+          title,
+          description,
+          relatedCat,
+          coverImage
         });
+
         const savedBlog = await newBlog.save();
         res.status(201).json({ success: true, data: savedBlog });
       } catch (error) {
+        console.error(error);
         res.status(400).json({ success: false });
       }
       break;

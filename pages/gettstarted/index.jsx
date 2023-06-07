@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '../../styles/Initial.module.css';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
-
+import axios from 'axios';
 const Index = () => {
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
@@ -20,8 +20,7 @@ const Index = () => {
     const [hearAboutUs, setHearAboutUs] = useState('');
     const [formError, setFormError] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (
             name &&
@@ -33,23 +32,48 @@ const Index = () => {
             leaseTiming &&
             hearAboutUs
         ) {
-            // Handle form submission logic here
-            setIsSubmitted(true);
-            setFormError(false);
-            setName('');
-            setAddress('');
-            setEmail('');
-            setTelephone('');
-            setReceiveTextMessages(false);
-            setServices('');
-            setIndustryExperience('');
-            setLicenseInfo({ licenseDate: '', isLicenseValid: false, licenseNumber: '' });
-            setLeaseTiming('');
-            setHearAboutUs('');
+            const data = {
+                name,
+                address,
+                email,
+                telephone,
+                receiveTextMessages,
+                services,
+                industryExperience,
+                licenseInfo,
+                leaseTiming,
+                hearAboutUs,
+            };
+
+            try {
+                const response = await axios.post('/api/tenantapplication', data);
+                // Handle success response if needed
+                setIsSubmitted(true);
+                setFormError(false);
+                setName('');
+                setAddress('');
+                setEmail('');
+                setTelephone('');
+                setReceiveTextMessages(false);
+                setServices('');
+                setIndustryExperience('');
+                setLicenseInfo({
+                    licenseDate: '',
+                    isLicenseValid: false,
+                    licenseNumber: '',
+                });
+                setLeaseTiming('');
+                setHearAboutUs('');
+                console.log(response)
+            } catch (error) {
+                // Handle error if needed
+                console.error(error);
+            }
         } else {
             setFormError(true);
         }
     };
+
 
     useEffect(() => {
         if (isSubmitted) {

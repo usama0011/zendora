@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import Image from 'next/image';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 
 const Index = () => {
   const [fullname, setFullName] = useState('');
@@ -17,34 +18,27 @@ const Index = () => {
   const [error, setError] = useState('');
   const router = useRouter();
 
+
   const handleSubmitForm = async (e) => {
     e.preventDefault();
-
+  
     if (password !== repeatedPass) {
       setError('Passwords do not match');
       return;
     }
-
+  
     const userData = {
       fullname,
       username,
       email,
       password,
     };
-
+  
     try {
-      const response = await fetch('/api/user', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        console.log('User registered successfully:', data.data);
+      const response = await axios.post("/api/user", userData);
+  
+      if (response.status === 200) {
+        console.log('User registered successfully:', response.data.data);
         // Reset form fields
         setFullName('');
         setUserName('');
@@ -55,15 +49,14 @@ const Index = () => {
         setShowModal(true);
         // Store user data in local storage
       } else {
-        console.error('Registration failed:', data);
-        setError(data.message);
+        console.error('Registration failed:', response.data);
+        setError(response.data.message);
       }
     } catch (error) {
       console.error('Registration failed:', error);
       setError('Registration failed. Please try again.');
     }
   };
-
   const handleCheckboxChange = (e) => {
     setIsChecked(e.target.checked);
   };

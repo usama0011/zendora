@@ -6,6 +6,7 @@ import Head from 'next/head';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import styles from '../../styles/login.module.css';
+import WithLoginAuth from '@/components/LoginRedirect';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -38,9 +39,9 @@ const Login = () => {
         },
         body: JSON.stringify({ email, password }),
       });
-
+  
       const data = await response.json();
-
+  
       if (response.ok) {
         console.log('Login successful:', data);
         // Perform any necessary actions after successful login
@@ -48,7 +49,12 @@ const Login = () => {
         setShowModal(true);
         setTimeout(() => {
           setShowModal(false);
-          router.push('/'); // Redirect to home page
+          
+          if (data.data.isAdmin) {
+            router.push('/admin'); // Redirect to admin page
+          } else {
+            router.push('/'); // Redirect to home page
+          }
         }, 1000);
       } else {
         console.error('Login failed:', data);
@@ -131,4 +137,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default WithLoginAuth(Login);

@@ -61,7 +61,7 @@ const Footer = () => {
                     <div className={styles.paymentMethods}>
                         <h3>Payment Methods</h3>
                         <p>
-                            Each Professional is an independent business owner. Please speak to your service provider for more details.
+                        Each Professional is an independent business owner. Please speak to your service provider for more details.
                         </p>
                     </div>
                 </div>

@@ -9,7 +9,7 @@ const BlogSchema = new Schema(
     date: { type: String, required: true },
     title: { type: String, required: true },
     description: { type: String, required: true },
-    relatedCat: { type: String },
+    relatedCat: { type: String, required: true },
   },
   { timestamps: true }
 );

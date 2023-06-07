@@ -3,6 +3,11 @@
   height: 186px;
   position: relative;
 }
+.mymessage{
+  padding: 10px;
+  text-align: center;
+  color:green;
+}
 .bgImageContainer{
   position: relative;
   width: 100%;
